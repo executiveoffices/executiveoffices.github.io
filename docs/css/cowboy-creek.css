@@ -1,0 +1,61 @@
+/* Cowboy Creek — page styles and the home-page bar.
+   Brand colors sampled from the Executive Offices logo. */
+@font-face{font-display:swap;font-family:"EB Garamond";src:url('EBGaramond-Regular.woff2') format('woff2'),url('EBGaramond-Regular.woff') format('woff');font-weight:400}
+
+:root{
+  --cc-navy:#1c3860;
+  --cc-gold:#b08840;
+  --cc-ink:#24292e;
+  --cc-paper:#fff;
+  --cc-rule:#e6e6e6;
+  --cc-muted:#6b7280;
+}
+
+/* ---------- Home-page line: one small-caps line between two gold rules, full logo width, fades in after a few seconds ---------- */
+.cc-box{display:block;position:relative;box-sizing:border-box;width:929px;margin:30px 0 0;padding:14px 0;border-top:1px solid var(--cc-gold);border-bottom:1px solid var(--cc-gold);text-align:center;font-family:"EB Garamond",Georgia,"Times New Roman",serif;font-size:13px;line-height:1.4;letter-spacing:.22em;text-transform:uppercase;color:var(--cc-ink);pointer-events:auto;opacity:0;transition:opacity .9s ease}
+.cc-box.is-visible{opacity:1}
+.cc-box__name{color:var(--cc-gold)}
+.cc-box__sep{margin:0 14px;color:var(--cc-gold)}
+.cc-box__link{color:var(--cc-navy);text-decoration:none;border-bottom:1px solid var(--cc-gold);padding-bottom:2px;transition:color .2s}
+.cc-box__link:hover{color:var(--cc-gold)}
+@media (prefers-reduced-motion:reduce){.cc-box{transition:none}}
+
+/* ---------- Home-page shell: 960px canvas scaled to fit, cowboy icon pinned bottom-right ---------- */
+#eo-fit{width:100%;overflow:hidden}
+#eo-canvas{width:960px;margin:0 auto;transform-origin:top left}
+.cc-float{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:100;width:47px;height:40px;pointer-events:auto;opacity:0;animation:cc-float-in .9s ease 2s forwards}
+@keyframes cc-float-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.cc-float{animation:none;opacity:1}}
+
+/* ---------- Cowboy Creek page ---------- */
+.cc-page{margin:0;background:var(--cc-paper);color:var(--cc-ink);font-family:"EB Garamond",Georgia,"Times New Roman",serif;font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.cc-header{max-width:720px;margin:0 auto;padding:28px 24px 0}
+.cc-header__home{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--cc-navy);text-decoration:none}
+.cc-header__home:hover{color:var(--cc-gold)}
+.cc-main{max-width:720px;margin:0 auto;padding:56px 24px 72px}
+.cc-eyebrow{margin:0 0 14px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--cc-gold)}
+.cc-title{margin:0 0 22px;font-weight:400;font-size:66px;line-height:1.05;color:var(--cc-navy)}
+.cc-lede{margin:0 0 22px;font-size:24px;line-height:1.45}
+.cc-notice{margin:0;padding-top:18px;border-top:1px solid var(--cc-gold);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--cc-navy)}
+.cc-section{margin-top:60px}
+.cc-h2{margin:0 0 18px;font-weight:400;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--cc-gold)}
+.cc-section p{margin:0 0 14px}
+.cc-list{margin:0;padding:0}
+.cc-item{display:grid;grid-template-columns:150px 1fr;gap:6px 24px;padding:18px 0;border-top:1px solid var(--cc-rule)}
+.cc-item:last-child{border-bottom:1px solid var(--cc-rule)}
+.cc-item dt{margin:0;color:var(--cc-navy);font-size:23px;line-height:1.3}
+.cc-item dd{margin:0}
+.cc-cta{padding:36px;background:var(--cc-navy);color:#fff}
+.cc-cta p{color:rgba(255,255,255,.88)}
+.cc-button{display:inline-block;margin-top:10px;padding:13px 28px;border:1px solid var(--cc-gold);color:#fff;text-decoration:none;font-size:14px;letter-spacing:.16em;text-transform:uppercase;transition:background .2s,color .2s}
+.cc-button:hover{background:var(--cc-gold);color:var(--cc-navy)}
+.cc-footer{max-width:720px;margin:0 auto;padding:0 24px 44px;font-size:14px;letter-spacing:.04em;color:var(--cc-muted)}
+.cc-footer a{color:var(--cc-navy);text-decoration:none}
+.cc-footer a:hover{color:var(--cc-gold)}
+@media (max-width:600px){
+  .cc-main{padding-top:40px}
+  .cc-title{font-size:46px}
+  .cc-lede{font-size:20px}
+  .cc-item{grid-template-columns:1fr;gap:4px}
+  .cc-cta{padding:28px 22px}
+}

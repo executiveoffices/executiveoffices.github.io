@@ -8,9 +8,9 @@ r=function(){dpi=window.devicePixelRatio;var e=document.querySelector('.js1');e.
 var e=document.querySelector('.js2');e.setAttribute('src',(dpi>1)?'images/cowboy-icon-84.png':'images/cowboy-icon-42.png');};
 if(!window.HTMLPictureElement){r();}
 (function(){$('a[href^="#"]:not(.allowConsent,.noConsent,.denyConsent,.removeConsent)').each(function(i,e){$(e).click(function(){var t=e.hash.length>1?$('[name="'+e.hash.slice(1)+'"]').offset().top:0;return $("html, body").animate({scrollTop:t},400),!1})})})();
-wl=new woolite();
+if($('.js3').length){wl=new woolite();
 wl.init();
 wl.addAnimation($('.js3')[0], "1.00s", "10.00s", 1, 100);
-wl.start();
+wl.start();}
 
 });
